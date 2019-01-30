@@ -12,7 +12,12 @@ app.use(cors());
 app.get('/v1/pricetable', (req, res) => {
     getPriceTable(db, (d) => {
         res.contentType('json');
-        res.send(d);
+        res.send(
+            JSON.stringify({
+                "message": "success",
+                "data": d
+            })
+        );
     });
 });
 
